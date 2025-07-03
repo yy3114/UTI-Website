@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泌尿道感染原因探討 - 護理專業版</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* 整體頁面背景的淺灰色 */
+            color: #2c3e50; /* 深色文字以提高對比度 */
+            line-height: 1.7; /* 改善行高以提高可讀性 */
+        }
+        .container-wrapper {
+            background-color: #fcfcfc; /* 主內容區域的極淺灰白色 */
+            border-radius: 1.5rem; /* 大圓角 */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* 柔和的深陰影 */
+            overflow: hidden;
+            border: 1px solid #e2e8f0; /* 細微邊框 */
+        }
+        .header-section {
+            /* 設定圖片背景 */
+            background-image: url('https://i.postimg.cc/MHKWgXX9/78628714-s.jpg');
+            background-size: cover; /* 圖片覆蓋整個區域 */
+            background-position: center; /* 圖片居中 */
+            background-repeat: no-repeat; /* 圖片不重複 */
+            background-color: #1f2937; /* 圖片載入前的預設背景色，深灰色 */
+            position: relative; /* 用於內部元素的定位 */
+            overflow: hidden;
+            padding: 1rem; /* 調整內邊距，使外框縮小 */
+            display: flex; /* 使用 flexbox 居中內容 */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px; /* 確保足夠的高度，進一步縮小 */
+            border-bottom: 1px solid #e2e8f0; /* 在header底部增加一個細邊框，與內容區分隔 */
+        }
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明深色疊加層，確保文字清晰，不透明度增加 */
+            z-index: 0; /* 放置在標題框下方 */
+        }
+        .header-content-wrapper {
+            background-color: rgba(255, 255, 255, 0.4); /* 白色半透明背景框，透明度再次增加 */
+            border-radius: 1.5rem; /* 大圓角 */
+            padding: 0.75rem 1.5rem; /* 調整內邊距，使標題方塊縮小 */
+            /* 立體陰影效果 */
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.15), /* 主要的下落陰影 */
+                inset 0 0 0 2px rgba(255, 255, 255, 0.6), /* 淺色內陰影，模擬高光 */
+                inset 0 0 0 4px rgba(0, 0, 0, 0.05); /* 深色內陰影，模擬深度 */
+            position: relative; /* 確保文字在最上層 */
+            z-index: 1; /* 確保在疊加層之上 */
+            text-align: center;
+            max-width: 70%; /* 確保在小螢幕上不會溢出，並縮小方塊 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增懸停動畫 */
+        }
+        .header-content-wrapper:hover {
+            transform: translateY(-5px); /* 懸停時輕微上浮 */
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.25), /* 懸停時陰影加深 */
+                inset 0 0 0 2px rgba(255, 255, 255, 0.7), /* 懸停時高光更亮 */
+                inset 0 0 0 4px rgba(0, 0, 0, 0.1); /* 懸停時深度更明顯 */
+        }
+        .header-title {
+            color: #2c3e50; /* 白色背景上的深色文字 */
+            font-size: 1.5rem; /* 標題文字大小 */
+            font-weight: 800; /* extrabold */
+            margin-bottom: 0; /* 移除預設標題下邊距 */
+            line-height: 1.2;
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .header-title {
+                font-size: 2rem; /* sm:text-3xl，在大螢幕上也是縮小的 */
+            }
+        }
+
+        /* 手風琴樣式 */
+        .accordion-item {
+            border-bottom: 1px solid #e2e8f0; /* 項目間的分隔線 */
+        }
+        .accordion-item:last-child {
+            border-bottom: none; /* 最後一個項目沒有底邊線 */
+        }
+        .accordion-header {
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+            padding: 1.25rem 1.75rem; /* 更寬裕的內邊距 */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* semibold */
+            border-radius: 0.75rem; /* 圓角邊框 */
+            margin: 0.5rem 1rem; /* 使其略微浮動 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
+        }
+        .accordion-header:hover {
+            transform: translateY(-3px); /* 懸停時明顯上浮 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 懸停時更強陰影 */
+        }
+        /* 手風琴標題的活躍狀態 - 特定顏色將覆蓋此設置 */
+        .accordion-header.active {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 活躍時保持陰影 */
+        }
+
+        /* 每個手風琴標題的特定顏色 */
+        .header-blue { background-color: #e0f2fe; color: #1e40af; } /* 淺藍色 */
+        .header-blue.active { background-color: #bfdbfe; color: #1e40af; }
+        .content-blue { background-color: #f0f9ff; }
+
+        .header-green { background-color: #dcfce7; color: #166534; } /* 淺綠色 */
+        .header-green.active { background-color: #a7f3d0; color: #166534; }
+        .content-green { background-color: #f0fdf4; }
+
+        .header-purple { background-color: #ede9fe; color: #5b21b6; } /* 淺紫色 */
+        .header-purple.active { background-color: #ddd6fe; color: #5b21b6; }
+        .content-purple { background-color: #faf5ff; }
+
+        .header-rose { background-color: #ffe4e6; color: #be123c; } /* 淺玫瑰色 */
+        .header-rose.active { background-color: #fecdd3; color: #be123c; }
+        .content-rose { background-color: #fffafa; }
+
+        .header-indigo { background-color: #e0e7ff; color: #3730a3; } /* 淺靛藍色 */
+        .header-indigo.active { background-color: #c7d2fe; color: #3730a3; }
+        .content-indigo { background-color: #eef2ff; }
+
+        .header-teal { background-color: #ccfbf1; color: #0f766e; } /* 淺青綠色 */
+        .header-teal.active { background-color: #99f6e4; color: #0f766e; }
+        .content-teal { background-color: #f0fdfa; }
+
+        .header-orange { background-color: #ffedd5; color: #c2410c; } /* 淺橙色 */
+        .header-orange.active { background-color: #fed7aa; color: #c2410c; }
+        .content-orange { background-color: #fff7ed; }
+
+        .header-brown { background-color: #fef3c7; color: #92400e; } /* 淺棕色/金色 */
+        .header-brown.active { background-color: #fde68a; color: #92400e; }
+        .content-brown { background-color: #fffbeb; }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, padding 0.7s ease-out, opacity 0.5s ease-out;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            border-radius: 0 0 1rem 1rem; /* 圓角底部 */
+        }
+        .accordion-content.active {
+            max-height: 2000px; /* 增加最大高度以確保所有內容可見 */
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+            opacity: 1;
+            transform: translateY(0);
+            transition: max-height 0.9s ease-in, padding 0.9s ease-in, opacity 0.7s ease-in, transform 0.7s ease-in;
+        }
+        .icon-wrapper {
+            transition: transform 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* 圖標包裹器的固定寬度 */
+            height: 40px; /* 圖標包裹器的固定高度 */
+            margin-left: 1rem;
+            flex-shrink: 0; /* 防止圖標縮小 */
+            font-size: 2.5rem; /* 調整 Unicode 符號的字體大小 */
+            line-height: 1; /* 確保垂直居中 */
+            color: currentColor; /* 繼承父標題的顏色 */
+        }
+        .accordion-header.active .icon-wrapper {
+            transform: rotate(180deg); /* 活躍時旋轉圖標 */
+        }
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* rounded-lg */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 增強圖片陰影 */
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: block; /* 確保佔據全部寬度 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .disclaimer-box {
+            background-color: #fff7ed; /* 柔和的橙色/黃色作為警告背景 */
+            border-color: #fdba74; /* 更深的橙色邊框 */
+            color: #c2410c; /* 深橙色文字 */
+            border-left-width: 5px; /* 更強的左邊框 */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .list-disc li, .list-circle li {
+            margin-bottom: 0.6rem;
+            padding-left: 0.25rem; /* 列表項的小縮進 */
+        }
+        .list-disc, .list-circle {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .content-text {
+            color: #4a5568; /* 內容段落的稍淺文字 */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto container-wrapper">
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="header-content-wrapper">
+                <h1 class="header-title">
+                    泌尿道感染 (UTI)<br>原因探討
+                </h1>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="p-6 sm:p-10">
+            <!-- Accordion Sections -->
+
+            <!-- 1. 細菌學角度 (Bacteriology) - 雙子座 ♊ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-blue">
+                    <span>1. 細菌學角度：微生物的入侵與致病性</span>
+                    <span class="icon-wrapper">♊</span>
+                </div>
+                <div class="accordion-content content-blue">
+                    <p class="mb-4 content-text">
+                        泌尿道感染最常見的原因是細菌入侵泌尿系統。大腸桿菌 (Escherichia coli, E. coli) 是引起 UTI 的主要病原體，佔社區型 UTI 的 75-95%。其他常見的革蘭氏陰性菌包括肺炎克雷伯菌 (Klebsiella pneumoniae)、奇異變形桿菌 (Proteus mirabilis) 等。革蘭氏陽性菌如金黃色葡萄球菌 (Staphylococcus aureus) 和糞腸球菌 (Enterococcus faecalis) 也可能引起 UTI，尤其是在導尿或住院患者中。
+                    </p>
+                    <p class="mb-4 content-text">
+                        細菌的致病性與其毒力因子密切相關，這些因子幫助細菌黏附、侵入和抵抗宿主免疫反應：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>黏附素 (Adhesins)：</b>如 P 菌毛 (P fimbriae) 和 I 型菌毛 (Type 1 fimbriae)，使細菌能夠黏附在泌尿道上皮細胞上，抵抗尿液沖刷。</li>
+                        <li><b>毒素 (Toxins)：</b>如溶血素 (hemolysin)，可損傷宿主細胞。</li>
+                        <li><b>生物膜 (Biofilm) 形成：</b>細菌在導管或膀胱內形成生物膜，使其更難被抗生素清除。</li>
+                        <li><b>鐵載體 (Siderophores)：</b>幫助細菌從宿主獲取鐵，促進其生長。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/mk8xZN4R/1751463771416.png" alt="細菌黏附示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：AUA (American Urological Association) 指引強調 E. coli 為最常見病原體。</p>
+                </div>
+            </div>
+
+            <!-- 2. 解剖學角度 (Anatomy) - 金牛座 ♉ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-green">
+                    <span>2. 解剖學角度：結構差異與感染風險</span>
+                    <span class="icon-wrapper">♉</span>
+                </div>
+                <div class="accordion-content content-green">
+                    <p class="mb-4 content-text">
+                        泌尿系統的解剖結構在 UTI 的發生中扮演關鍵角色，尤其是性別差異：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>女性尿道較短：</b>女性尿道平均長度約 3-4 公分，遠短於男性尿道 (約 20 公分)。這使得肛門周圍的細菌更容易上行進入膀胱。</li>
+                        <li><b>尿道口與肛門距離近：</b>女性尿道口與肛門距離較近，增加了腸道細菌污染尿道口的機會。</li>
+                        <li><b>男性前列腺：</b>男性前列腺肥大可能導致排尿不暢，增加尿液滯留，進而增加感染風險。</li>
+                        <li><b>先天性泌尿道異常：</b>如膀胱輸尿管逆流 (Vesicoureteral Reflux, VUR)、尿道狹窄、腎結石等，都可能阻礙尿液正常排出，導致尿液滯留，增加感染機會。</li>
+                        <div class="flex justify-center">
+                            <img src="https://i.postimg.cc/NjxGnVLC/Screenshot-20250702-214737-Chrome.jpg" alt="男女泌尿系統示意圖" class="section-image">
+                        </div>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：EAU (European Association of Urology) 指引強調解剖結構對 UTI 風險的影響。</p>
+                </div>
+            </div>
+
+            <!-- 3. 生理學角度 (Physiology) - 天秤座 ♎ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-purple">
+                    <span>3. 生理學角度：身體防禦機制與功能障礙</span>
+                    <span class="icon-wrapper">♎</span>
+                </div>
+                <div class="accordion-content content-purple">
+                    <p class="mb-4 content-text">
+                        泌尿系統擁有一系列生理防禦機制來抵抗感染：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>尿液沖刷作用：</b>正常的排尿頻率和足夠的尿量可以沖刷掉尿道和膀胱中的細菌。</li>
+                        <li><b>尿液的特性：</b>尿液的酸性 pH 值 (通常為 5.5-6.5)、高尿素濃度和高滲透壓對細菌生長具有抑制作用。</li>
+                        <li><b>膀胱黏膜屏障：</b>膀胱內壁的黏膜層富含黏蛋白 (mucopolysaccharide)，形成一層保護屏障，防止細菌黏附和侵入。</li>
+                        <li><b>局部免疫反應：</b>泌尿道黏膜下的免疫細胞 (如巨噬細胞、淋巴細胞) 和分泌型 IgA 參與局部免疫防禦。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/50j2Djqy/1751467157116.png" alt="膀胱排尿示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：EBM (Evidence-Based Medicine) 指引強調生理防禦機制的重要性。</p>
+                </div>
+            </div>
+
+            <!-- 4. 病理學角度 (Pathology) - 天蠍座 ♏ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-rose">
+                    <span>4. 病理學角度：組織損傷與炎症反應</span>
+                    <span class="icon-wrapper">♏</span>
+                </div>
+                <div class="accordion-content content-rose">
+                    <p class="mb-4 content-text">
+                        當細菌成功侵入泌尿道後，會引起一系列病理變化和炎症反應：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>黏膜損傷：</b>細菌毒素和宿主免疫反應釋放的炎症介質會導致泌尿道黏膜細胞損傷和壞死。</li>
+                        <li><b>炎症反應：</b>宿主免疫系統會啟動炎症反應，吸引中性粒細胞、巨噬細胞等免疫細胞到感染部位，試圖清除細菌。這會導致局部紅腫、疼痛和功能障礙。</li>
+                        <li><b>生物膜形成：</b>在慢性或復發性 UTI 中，細菌可能形成生物膜，這是一種由細菌分泌的胞外多醣基質組成的保護性結構，使細菌能夠抵抗抗生素和宿主免疫攻擊。</li>
+                        <li><b>上行感染：</b>如果感染未得到有效控制，細菌可能沿著輸尿管上行至腎臟，引起腎盂腎炎 (Pyelonephritis)，導致腎實質損傷，甚至可能發展為腎膿腫或敗血症。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/cLdQzyCj/1751467510928.png" alt="炎症反應示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：臨床病理學文獻對 UTI 炎症過程的描述。</p>
+                </div>
+            </div>
+
+            <!-- 5. 藥理學角度 (Pharmacology) - 射手座 ♐ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-indigo">
+                    <span>5. 藥理學角度：抗生素的作用與耐藥性</span>
+                    <span class="icon-wrapper">♐</span>
+                </div>
+                <div class="accordion-content content-indigo">
+                    <p class="mb-4 content-text">
+                        抗生素是治療 UTI 的主要藥物，但其使用也影響了 UTI 的病原學和耐藥性模式：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>抗生素作用機制：</b>不同類型的抗生素通過不同機制殺滅或抑制細菌生長，如抑制細胞壁合成 (β-內醯胺類)、抑制蛋白質蛋白質合成 (胺基醣苷類、巨環內酯類)、抑制 DNA 複製 (氟喹諾酮類) 等。</li>
+                        <li><b>抗生素耐藥性：</b>細菌通過多種機制產生對抗生素的耐藥性，包括：
+                            <ul class="list-circle list-inside ml-4 mt-2 content-text">
+                                <li><b>酶降解：</b>細菌產生酶 (如 β-內醯胺酶) 降解抗生素。</li>
+                                <li><b>靶點改變：</b>細菌改變藥物作用的靶點，使其無法結合。</li>
+                                <li><b>外排泵：</b>細菌將抗生素泵出細胞外。</li>
+                                <li><b>生物膜保護：</b>生物膜中的細菌對抗生素的敏感性降低。</li>
+                            </ul>
+                        </li>
+                        <li><b>不當使用抗生素：</b>廣泛或不當使用抗生素會加速耐藥菌株的產生和傳播，使得治療選擇受限，增加治療失敗的風險。</li>
+                    </ul>
+                    <p class="mb-4 content-text">
+                        值得注意的是，抗生素耐藥性不僅與臨床用藥有關，也受到環境中抗生素殘留的影響：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>環境因素：</b>製藥廠廢水、醫院廢水、農業徑流等可能將抗生素殘留釋放到環境中，污染土壤和水體。這些環境中的抗生素會對微生物群落產生選擇壓力，促進耐藥基因的傳播。</li>
+                        <li><b>水產養殖業與畜牧業用藥問題：</b>為了預防疾病和促進生長，水產養殖和畜牧業常規使用大量抗生素。這些藥物通過動物排泄物進入環境，或通過食物鏈傳播到人類。這不僅直接增加了環境中耐藥菌的數量，也可能導致人類接觸到帶有耐藥基因的細菌，進一步加劇抗生素耐藥性問題。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/9fWx5gX8/1751468153351.png" alt="抗生素作用與耐藥性示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：WHO (World Health Organization) 和 CDC (Centers for Disease Control and Prevention) 關於抗生素耐藥性的報告。</p>
+                </div>
+            </div>
+
+            <!-- 6. 流行病學角度 (Epidemiology) - 水瓶座 ♒ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-teal">
+                    <span>6. 流行病學角度：高危人群與風險因素</span>
+                    <span class="icon-wrapper">♒</span>
+                </div>
+                <div class="accordion-content content-teal">
+                    <p class="mb-4 content-text">
+                        流行病學研究揭示了 UTI 在不同人群中的發生模式和相關風險因素：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>性別：</b>女性 UTI 發生率遠高於男性，約 50-60% 的女性一生中至少經歷一次 UTI。</li>
+                        <li><b>年齡：</b>嬰幼兒、育齡期女性和老年人是高發人群。老年人因免疫功能下降、合併症和導尿等因素，UTI 風險增加。</li>
+                        <li><b>性行為：</b>性生活活躍的女性 UTI 風險增加，性交可能將細菌推入尿道。</li>
+                        <li><b>導尿管使用：</b>導尿管是醫院獲得性 UTI 的最常見原因，導管表面易形成生物膜。</li>
+                        <li><b>糖尿病：</b>糖尿病患者因免疫功能受損和尿液中葡萄糖含量高，UTI 風險增加。</li>
+                        <li><b>免疫抑制：</b>接受免疫抑制治療或患有免疫缺陷疾病的患者，UTI 風險更高。</li>
+                        <li><b>懷孕：</b>懷孕期間荷爾蒙變化和子宮壓迫可能導致尿液滯留，增加 UTI 風險。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/43hg8DRc/1751479197512.png" alt="UTI風險因素圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：流行病學研究和公共衛生數據。</p>
+                </div>
+            </div>
+
+            <!-- 7. 再復發或不癒的原因探討 - 牡羊座 ♈ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-orange">
+                    <span>7. 再復發或不癒的原因探討</span>
+                    <span class="icon-wrapper">♈</span>
+                </div>
+                <div class="accordion-content content-orange">
+                    <p class="mb-4 content-text">
+                        儘管經過治療，部分泌尿道感染仍可能反覆發生或難以治癒。這通常涉及多種複雜因素：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>復發性感染 (Recurrent UTI)：</b>
+                            <ul class="list-circle list-inside ml-4 mt-2 content-text">
+                                <li><b>行為因素：</b>性行為頻繁、排尿習慣不良 (如憋尿、排尿不完全)、衛生習慣不佳 (如擦拭方向錯誤)。</li>
+                                <li><b>解剖學異常：</b>未矯正的膀胱輸尿管逆流、尿道憩室、腎結石、前列腺肥大等結構性問題。</li>
+                                <li><b>宿主因素：</b>更年期女性雌激素缺乏、糖尿病控制不佳、免疫功能低下。</li>
+                                <li><b>細菌因素：</b>細菌持續存在於泌尿道或腸道儲存庫中，導致再感染。</li>
+                            </ul>
+                        </li>
+                        <li><b>不癒性感染 (Persistent UTI)：</b>
+                            <ul class="list-circle list-inside ml-4 mt-2 content-text">
+                                <li><b>抗生素耐藥性：</b>細菌對所使用的抗生素產生抗藥性，導致治療失敗。</li>
+                                <li><b>生物膜形成：</b>細菌在導管、結石或膀胱壁上形成生物膜，抗生素難以穿透。</li>
+                                <li><b>異物存在：</b>如導尿管、支架、結石等，為細菌提供了持續感染的溫床。</li>
+                                <li><b>感染部位深層：</b>感染可能擴散到腎臟實質 (腎膿腫) 或前列腺 (慢性前列腺炎)，這些部位抗生素滲透性較差。</li>
+                                <li><b>診斷錯誤或治療不足：</b>未能識別多重病原體感染、抗生素劑量不足或療程不夠。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/3NZL6JzJ/1751553718779.png" alt="復發與不癒原因示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：EAU (European Association of Urology) 和 AUA (American Urological Association) 關於復發性 UTI 的指引。</p>
+                </div>
+            </div>
+
+            <!-- 8. 超高齡社會的挑戰與藥物開發不易 - 摩羯座 ♑ -->
+            <div class="accordion-item mb-4">
+                <div class="accordion-header header-brown">
+                    <span>8. 超高齡社會的挑戰與藥物開發不易</span>
+                    <span class="icon-wrapper">♑</span>
+                </div>
+                <div class="accordion-content content-brown">
+                    <p class="mb-4 content-text">
+                        全球人口結構正快速走向高齡化，許多國家已進入或即將進入超高齡社會（65歲以上人口佔總人口20%以上）。這對醫療保健系統帶來了前所未有的挑戰：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>慢性病與多重共病：</b>老年人普遍患有多種慢性疾病（如高血壓、糖尿病、心血管疾病、骨質疏鬆等），導致多重共病（Multimorbidity）現象普遍。這使得疾病管理更加複雜，藥物使用量也隨之增加。</li>
+                        <li><b>醫療資源負擔加劇：</b>高齡人口對醫療服務的需求顯著增加，包括門診、住院、長期照護等，對醫療預算和人力造成巨大壓力。</li>
+                        <li><b>生活品質下降：</b>多重疾病和藥物副作用可能嚴重影響老年人的生活品質和獨立性。</li>
+                    </ul>
+                    <p class="mb-4 content-text">
+                        在這樣的背景下，針對老年人的藥物開發面臨諸多困難：
+                    </p>
+                    <ul class="list-disc list-inside mb-4 pl-4 content-text">
+                        <li><b>藥物動力學與藥效學的複雜性：</b>老年人由於生理機能的變化（如肝腎功能下降、體脂比例改變、胃腸蠕動減慢等），藥物的吸收、分佈、代謝和排泄（藥物動力學, PK）以及藥物對身體的影響（藥效學, PD）都與年輕人不同。這使得藥物劑量和方案的確定變得複雜且難以標準化。</li>
+                        <li><b>臨床試驗的倫理與實施挑戰：</b>
+                            <ul class="list-circle list-inside ml-4 mt-2 content-text">
+                                <li><b>多重共病與多重用藥：</b>老年患者通常同時服用多種藥物，這會增加藥物相互作用的風險，並使臨床試驗結果難以解釋。</li>
+                                <li><b>倫理考量：</b>老年患者的認知能力、自理能力可能下降，在知情同意方面存在倫理挑戰。</li>
+                                <li><b>招募困難：</b>由於健康狀況複雜、行動不便等因素，招募足夠的老年受試者參與臨床試驗十分困難。</li>
+                            </ul>
+                        </li>
+                        <li><b>缺乏老年專屬研究：</b>過去的藥物研究多以年輕成年人為主要對象，導致針對老年人特點的藥物數據和指引不足。許多藥物在老年人中的安全性和有效性缺乏充分驗證。</li>
+                        <li><b>多重用藥 (Polypharmacy) 問題：</b>老年人常因多重共病而服用多種藥物，增加了藥物不良反應和藥物相互作用的風險，進一步複雜了藥物治療。</li>
+                    </ul>
+                    <div class="flex justify-center">
+                        <img src="https://i.postimg.cc/XvJ7NBbf/1751478810908.png" alt="超高齡社會與藥物開發示意圖" class="section-image">
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">參考來源：世界衛生組織 (WHO) 和各國衛生部門關於高齡化社會的報告。</p>
+                </div>
+            </div>
+
+            <!-- Disclaimer Section -->
+            <div class="mt-10 p-6 disclaimer-box rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    免責聲明
+                </h3>
+                <p class="text-base leading-relaxed">
+                    本網站提供的所有資訊僅供教育和參考之用，不應被視為醫療建議。本網站的內容不能替代專業醫療診斷、治療或建議。如果您有任何健康問題或疑慮，請務必諮詢合格的醫療專業人員。在未經醫療專業人員指導下，請勿依賴本網站的資訊來診斷或治療任何健康狀況。對於因使用或依賴本網站資訊而導致的任何損失或損害，本網站不承擔任何責任。
+                </p>
+            </div>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-800 text-gray-300 p-6 sm:p-8 text-center text-sm">
+            <p class="mb-2">&copy; 2025 泌尿道感染知識網站。版權所有。</p>
+            <p>參考指引：AUA (美國泌尿科協會), EAU (歐洲泌尿科協會), EBM (實證醫學) 等。</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Accordion functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    // The icon rotation is handled purely by CSS based on the 'active' class on the header.
+                    // No direct JS manipulation of 'transform' for the icon is needed here.
+
+                    // Toggle active class on header
+                    header.classList.toggle('active');
+
+                    // Toggle active class on content
+                    content.classList.toggle('active');
+
+                    // Close other open accordions (optional, but good for single-open)
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            otherHeader.classList.remove('active');
+                            otherContent.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
